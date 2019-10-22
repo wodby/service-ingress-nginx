@@ -1,0 +1,15 @@
+name: nginx-ingress
+version: 0.0.1
+scalable: false
+options:
+- version: 0.26.1
+  default: true
+containers:
+- name: nginx-ingress-controller
+  ports:
+  - name: http
+    number: 80
+    type: http
+  - name: https
+    number: 443
+    type: http
