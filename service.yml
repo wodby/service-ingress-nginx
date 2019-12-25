@@ -1,4 +1,4 @@
-name: nginx-ingress
+name: ingress-nginx
 scalable: false
 options:
 - version: 0.26.1
