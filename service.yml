@@ -2,8 +2,5 @@ name: ingress-nginx
 title: Ingress Nginx
 type: infrastructure
 scalable: false
-options:
-- version: 0.26.1
-  default: true
 containers:
 - name: nginx-ingress-controller
