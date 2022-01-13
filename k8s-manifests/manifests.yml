@@ -536,7 +536,7 @@ metadata:
   name: ingress-nginx-admission-create
   namespace: ingress-nginx
   labels:
-    job-name: ingress-nginx-admission-create
+    app.kubernetes.io/job-name: ingress-nginx-admission-create
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/version: 1.1.1
@@ -582,7 +582,7 @@ metadata:
   name: ingress-nginx-admission-patch
   namespace: ingress-nginx
   labels:
-    job-name: ingress-nginx-admission-patch
+    app.kubernetes.io/job-name: ingress-nginx-admission-patch
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/version: 1.1.1
