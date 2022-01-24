@@ -3,3 +3,4 @@ title: Ingress Nginx
 type: infrastructure
 icon: nginx
 scalable: false
+hostname: ingress-nginx
