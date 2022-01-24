@@ -4,3 +4,5 @@ type: infrastructure
 icon: nginx
 scalable: false
 hostname: ingress-nginx
+containers:
+  - name: controller
