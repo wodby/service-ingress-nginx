@@ -6,3 +6,8 @@ scalable: false
 hostname: ingress-nginx
 containers:
   - name: controller
+annotations:
+- name: proxy-buffer-size
+  value: 32k
+- name: proxy-body-size
+  value: '0'
