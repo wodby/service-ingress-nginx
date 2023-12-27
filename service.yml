@@ -11,3 +11,8 @@ annotations:
   value: 32k
 - name: proxy-body-size
   value: '0'
+- name: use-proxy-protocol
+  value: 'true'
+- name: allow-snippet-annotations
+  value: 'false'
+  
