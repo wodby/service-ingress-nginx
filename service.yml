@@ -13,6 +13,7 @@ annotations:
   value: '0'
 - name: use-proxy-protocol
   value: 'true'
+# to set default no-indexation headers via 'configuration-snippet'
 - name: allow-snippet-annotations
-  value: 'false'
+  value: 'true'
   
