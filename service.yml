@@ -21,7 +21,7 @@ helm:
   version: 4.10.0
   configurations:
   - name: ingress-nginx
-    annotations: controller.configAnnotations
+    annotations: controller.config
     labels: controller.labels
     resources: controller.resources    
   values: 
