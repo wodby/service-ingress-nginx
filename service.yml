@@ -13,9 +13,6 @@ annotations:
   value: '0'
 - name: use-proxy-protocol
   value: 'true'
-# to set default no-indexation headers via 'configuration-snippet'
-- name: allow-snippet-annotations
-  value: 'true'
   
 helm:
   name: ingress-nginx
@@ -24,7 +21,11 @@ helm:
   version: 4.10.0
   configurations:
   - name: ingress-nginx
-    annotations: controller.annotations
+    annotations: controller.configAnnotations
     labels: controller.labels
     resources: controller.resources    
+  values: 
+# to set default no-indexation headers via 'configuration-snippet'  
+  - name: controller.allowSnippetAnnotations
+    value: true
     
