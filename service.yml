@@ -26,5 +26,3 @@ helm:
 # to set default no-indexation headers via 'configuration-snippet'  
   - name: controller.allowSnippetAnnotations
     value: true
-  - name: controller.annotationsRiskLevel
-    value: Critical
