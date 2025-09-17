@@ -11,6 +11,8 @@ annotations:
   value: 32k
 - name: proxy-body-size
   value: '0'
+- name: annotations-risk-level
+  value: Critical
   
 helm:
   name: ingress-nginx
