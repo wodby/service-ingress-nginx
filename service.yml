@@ -20,7 +20,7 @@ helm:
   chart: ingress-nginx/ingress-nginx
   version: 4.13.2
   configurations:
-  - name: ingress-nginx
+  - name: controller
     annotations: controller.config
     labels: controller.labels
     resources: controller.resources    
