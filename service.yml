@@ -20,14 +20,15 @@ helm:
 # to set default no-indexation headers via 'configuration-snippet'  
   - name: controller.allowSnippetAnnotations
     value: true
+
 workloads:
 - id: main
   kind: deployment
   primary: true
+  helm:
+    labels: controller.labels
+    annotations: controller.config
   containers:
   - name: controller
     helm:
       resources: controller.resources
-  helm:
-    labels: controller.labels
-    annotations: controller.config
