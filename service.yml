@@ -3,8 +3,6 @@ title: Ingress Nginx
 type: infrastructure
 icon: nginx
 scalable: false
-containers:
-  - name: controller
 annotations:
 - name: proxy-buffer-size
   value: 32k
@@ -12,18 +10,24 @@ annotations:
   value: '0'
 - name: annotations-risk-level
   value: Critical
-  
+
 helm:
   name: ingress-nginx
   source: https://kubernetes.github.io/ingress-nginx
   chart: ingress-nginx/ingress-nginx
   version: 4.13.2
-  configurations:
-  - container: controller
-    annotations: controller.config
-    labels: controller.labels
-    resources: controller.resources    
-  values: 
+  values:
 # to set default no-indexation headers via 'configuration-snippet'  
   - name: controller.allowSnippetAnnotations
     value: true
+workloads:
+- id: main
+  kind: deployment
+  primary: true
+  containers:
+  - name: controller
+    helm:
+      resources: controller.resources
+  helm:
+    labels: controller.labels
+    annotations: controller.config
