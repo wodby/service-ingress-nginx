@@ -1,10 +1,12 @@
-# Ingress Nginx service for Wodby
+# Ingress Nginx Kubernetes system service for Wodby
 
-Deploy the Kubernetes Ingress Nginx controller with
-[Wodby](https://wodby.com). This repository contains the `service.yml` manifest
-used to define the Wodby infrastructure service.
+Ingress Nginx supplies ingress routing for Wodby Kubernetes clusters that use
+the Nginx ingress controller.
 
-- [Ingress Nginx project](https://kubernetes.github.io/ingress-nginx/)
+This repository defines the Wodby service manifests and operational
+configuration for Ingress Nginx.
+
+- [Wodby Kubernetes platform](https://wodby.com)
 - [Wodby service documentation](https://wodby.com/docs/2.0/services/)
 - [Service manifest reference](https://wodby.com/docs/2.0/services/template/)
 
@@ -23,38 +25,24 @@ used to define the Wodby infrastructure service.
 The workload maps Wodby labels, annotations, and resource settings to the
 corresponding Ingress Nginx Helm values.
 
-## Use this service
+## Role in Wodby infrastructure
 
-A service is a reusable component and does not deploy by itself. Add the
-service to a stack intended for cluster infrastructure, publish the stack, and
-then create or upgrade the corresponding infrastructure app.
+Wodby installs this service through a Kubernetes system stack when it is
+required by the cluster provider or selected infrastructure configuration. It
+runs as a cluster-owned system app and is not offered as a user-deployable
+application service.
 
-To maintain your own version of the service:
+## Platform maintenance
 
-1. Fork this repository.
-2. Edit [`service.yml`](service.yml).
-3. Import the repository as a
-   [Git-backed service](https://wodby.com/docs/2.0/services/create/#create-a-git-backed-service).
-4. Reference `ingress-nginx` from your stack manifest.
+Changes to this repository can affect cluster provisioning, upgrades,
+networking, or observability. Coordinate manifest and Helm changes with every
+dependent system stack and preserve service, workload, endpoint, config, and
+volume identifiers.
 
-Wodby imports the manifest from the selected Git branch or tag and creates a
-new service revision when the Git-backed service is updated.
-
-## Customize the service
-
-Common changes include updating the chart version, exposing additional Helm
-values, changing controller configuration, and setting workload resources.
-
-Keep the `main` workload, `controller` container, annotation names, and Helm
-value paths stable unless dependent stacks and app-level overrides are updated
-at the same time. These identifiers are part of the downstream contract.
-
-Validate a customized manifest with the Wodby CLI before importing it:
+Wodby platform maintainers can validate the manifests with:
 
 ```bash
 wodby service validate-manifest service.yml --org <org-id>
 ```
 
-See the [service manifest reference](https://wodby.com/docs/2.0/services/template/)
-for every supported field and the [managed services
-index](https://github.com/wodby/services) for current catalog services.
+See the [service manifest reference](https://wodby.com/docs/2.0/services/template/) and the [managed services index](https://github.com/wodby/services).
